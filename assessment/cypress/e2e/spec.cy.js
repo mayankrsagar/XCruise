@@ -1,7 +1,7 @@
 describe('xCruise Landing Page Tests', () => {
   beforeEach(() => {
     // Visit the xCruise home page before each test
-    cy.visit('http://localhost:3000'); // Replace with the actual URL
+    cy.visit('http://localhost:3000/') // Replace with the actual URL
   });
 
   it('Navigation Bar - should display the xCruise logo', () => {
@@ -46,18 +46,27 @@ describe('xCruise Landing Page Tests', () => {
     cy.get('.discover .popular .pills > div').first().invoke('css', 'box-shadow').should('not.be.empty');
   });
 
-  it('Footer Section - should display contact information', () => {
-    cy.get('.footer').find('h3').contains('Contact Us').should('be.visible');
-    cy.get('.footer').find('li').contains('New York City').should('be.visible');
-  });
+  it('Contact Us Section - should display the Contact Us section with correct information', () => {
+    // Verify the Contact Us heading
+    cy.get('#contact > h3').should('contain', 'Contact Us');
 
-  it('Footer Section - should have a background color of #000033', () => {
-    cy.get('footer').should('have.css', 'background-color', 'rgb(0, 0, 51)');
-  });
-
-  it('Footer Section - footer links should have a color of #fff (white)', () => {
-    cy.get('footer a').each(($el) => {
-      expect($el).to.have.css('color', 'rgb(255, 255, 255)');
+    // Check for Contact Information
+    cy.get('.contact_info > div').first().within(() => {
+      cy.get('h4').should('contain', 'Contact Information');
+      cy.get('p').first().should('contain', '6750 N. Andrews Avenue Suite 100 Fort Lauderdale, FL 33309');
+      cy.get('p').last().should('contain', 'Call Us: +62-813 346 100');
     });
+
+    // Check Hours of Operation
+    cy.get('.contact_info > div').last().within(() => {
+      cy.get('h4').should('contain', 'Hours of Operation');
+      cy.get('p').first().should('contain', 'Mon-Fri: 8:00 am - 11:00 pm EST');
+      cy.get('p').last().should('contain', 'Sat-Sun: 9:00 am - 9:00 pm EST');
+    });
+  });
+
+  it('Footer Section - should display the Footer section with all elements correctly', () => {
+    cy.get('.social-icons').children().should('have.length', 4);
+    cy.get('.footer_rights').should('contain', '© 2024 xCruise In. All rights reserved');
   });
 });
