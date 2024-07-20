@@ -1,0 +1,276 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navbar {
+    height: 84px;
+    background-color: rgb(0, 0, 51);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background-image: url("https://github.com/Mohak-Trivedi/xCruise/blob/main/assests/hero-cruise.png?raw=true");
+    height: 557px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;   
+}
+
+.hero img {
+    height: 557px;
+    width: 1107px;
+}
+
+.hero button {
+    background-color: rgb(255, 85, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.heading {
+    padding: 5px 10px 5px 10px;
+    border-left: 3px;
+}
+
+.popular {
+    display: flex;
+    margin-top: -15px;
+}
+
+.pills {
+    display: flex;
+    align-items: center;
+}
+
+.pills div {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    height: 1rem;
+    padding: 5px;
+    border-radius: 25px;
+    margin: 4px;
+}
+
+.pills div img {
+    height: 1rem;
+    border-radius: 50%;
+    width: 1rem;
+}
+
+.discover{
+    padding: 20px;
+}
+.banner{
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+}
+
+.card {
+    cursor: pointer;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 15rem;
+}
+.overlay{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left:0;
+    color: white;
+    font-size: 75%;
+}
+#contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 7rem 0;
+}
+#contact h3{
+    border-bottom: 5px orange solid;
+}
+.contact_info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+}
+.contact_info div{
+    border: 3px solid black;
+    width: 50%;
+}
+
+footer{
+    background-color: #000033;
+    line-height: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10px 20px;
+    grid-gap: 5px;
+}
+footer p{
+    color: white;
+   
+}
+footer h3{
+    color: darkgoldenrod;
+}
+.social-icons{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.social-icons img{
+    width: 2rem;
+    
+}
+
+.footer_rights {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.footer_rights hr{
+    width: 100%;
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+    body{
+        background-size: cover;
+    }
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .heading {
+        text-align: center;
+        border: none;
+    }
+    .popular span{
+        font-size: x-small;
+        text-align: center;
+    }
+    .pills {
+        font-size: 1rem;
+    }
+    .cards{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .contact_info{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact_info div{
+        width: 100%;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-left: -20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .popular {
+        text-align: center;
+        flex-direction: column;
+    }
+    .heading {
+        text-align: center;
+        border: none;
+    }
+    .pills {
+        flex-direction: column;
+        font-size: 1rem;
+    }
+    .cards{
+        grid-template-columns: 1fr;
+    }
+    .contact_info{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact_info div{
+        width: 100%;
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-left: -20px;
+    }
+}
